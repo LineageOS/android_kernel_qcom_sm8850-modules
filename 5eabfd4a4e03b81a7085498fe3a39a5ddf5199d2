@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d66d9100_3d20c9a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-09-21T06:40:50Z",
+      "side": 1,
+      "message": "i hoped using //conditions:default would have worked here, but sadly it complains about remaining condition",
+      "revId": "5eabfd4a4e03b81a7085498fe3a39a5ddf5199d2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
