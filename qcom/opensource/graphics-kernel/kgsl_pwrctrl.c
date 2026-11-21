@@ -1835,7 +1835,9 @@ static int kgsl_pwrctrl_probe_gx_gdsc(struct kgsl_device *device, struct platfor
 			return IS_ERR(gx_pd) ? PTR_ERR(gx_pd) : -EINVAL;
 		}
 		pwr->gx_pd = gx_pd;
-		dev_pm_syscore_device(pwr->gx_pd, true);
+
+		if (gmu_device_is_enabled(pdev->dev.of_node))
+			dev_pm_syscore_device(pwr->gx_pd, true);
 	} else {
 		struct regulator *gx_regulator = devm_regulator_get(&pdev->dev, "vdd");
 
@@ -1881,7 +1883,7 @@ static int kgsl_cx_gdsc_event(struct notifier_block *nb,
 {
 	struct kgsl_pwrctrl *pwr = container_of(nb, struct kgsl_pwrctrl, cx_gdsc_nb);
 	struct kgsl_device *device = container_of(pwr, struct kgsl_device, pwrctrl);
-	u32 val;
+	u32 val = 0;
 
 	if (!pwr->cx_gdsc_wait)
 		return 0;
